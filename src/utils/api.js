@@ -81,7 +81,8 @@ export const fetchLLMResponse = async ({
   topP,
   maxTokens,
   frequencyPenalty,
-  presencePenalty
+  presencePenalty,
+  signal
 }) => {
   const config = PROVIDER_CONFIG[model] || { type: 'openai', url: 'https://api.openai.com/v1/chat/completions' };
   
@@ -89,17 +90,17 @@ export const fetchLLMResponse = async ({
     if (config.type === 'openai') {
       return await fetchOpenAI(config.url, {
         model, apiKey, systemPrompt, userMessage, history,
-        temperature, topP, maxTokens, frequencyPenalty, presencePenalty
+        temperature, topP, maxTokens, frequencyPenalty, presencePenalty, signal
       });
     } else if (config.type === 'anthropic') {
       return await fetchAnthropic(config.url, {
         model, apiKey, systemPrompt, userMessage, history,
-        temperature, topP, maxTokens
+        temperature, topP, maxTokens, signal
       });
     } else if (config.type === 'gemini') {
       return await fetchGemini(config.url, {
         model, apiKey, systemPrompt, userMessage, history,
-        temperature, topP, maxTokens
+        temperature, topP, maxTokens, signal
       });
     }
   } catch (error) {
@@ -143,7 +144,8 @@ const fetchOpenAI = async (url, params) => {
   const response = await fetch(url, {
     method: 'POST',
     headers: headers,
-    body: JSON.stringify(payload)
+    body: JSON.stringify(payload),
+    signal: params.signal
   });
 
   if (!response.ok) {
@@ -219,7 +221,8 @@ const fetchAnthropic = async (url, params) => {
       'anthropic-version': '2023-06-01',
       'anthropic-dangerously-allow-browser': 'true' // 如果在浏览器环境需要此头
     },
-    body: JSON.stringify(payload)
+    body: JSON.stringify(payload),
+    signal: params.signal
   });
 
   if (!response.ok) {
@@ -276,7 +279,8 @@ const fetchGemini = async (url, params) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(payload)
+    body: JSON.stringify(payload),
+    signal: params.signal
   });
 
   if (!response.ok) {

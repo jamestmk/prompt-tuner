@@ -1,0 +1,15 @@
+﻿input,expected_output
+请翻译以下句子为英文：今天天气真好,The weather is really nice today
+"这个产品有三个特点：快速、稳定、安全",This product has three features: fast stable and secure
+用一句话总结人工智能的定义,AI is the simulation of human intelligence by machines
+"他说：""你好，世界""",He said: Hello World
+请将以下JSON格式化：{"name":"test","value":123},Formatted JSON output
+解释什么是机器学习,Machine learning is a subset of AI that learns from data
+"包含换行符的数据
+这是第二行
+这是第三行",Multi-line content test
+请列出三种编程语言,Python Java JavaScript
+将摄氏37度转换为华氏温度,98.6°F
+"特殊字符测试：!@#$%^&*()_+{}|:<>?",Special characters test
+请用小学生能理解的方式解释量子力学,Quantum mechanics explained simply
+翻译为日语：谢谢你的帮助,ご助力ありがとうございます

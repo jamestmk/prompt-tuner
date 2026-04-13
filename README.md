@@ -1,5 +1,7 @@
-# Vue 3 + Vite
+# ✨ Prompt Tuner 
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+**LLM 提示词对比调试与 Agent 调优助手**
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+Prompt Tuner 是一个纯前端的 AI 提示词测试平台，允许你在同一个界面下配置不同的大模型和提示词，直观对比它们的生成结果、Token 消耗与推理延迟。
+当输出不符合预期时，你可以直接输入自然语言反馈，内置的 Agent 助手会自动分析并帮你写出更优的 Prompt。
+通过支持 CSV 批量导入测试和全局实验记录导出，它能帮你快速、稳定地找到最适合业务场景的提示词。
